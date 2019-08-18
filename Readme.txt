@@ -12,7 +12,6 @@ Put all the these files in the tensorflow API folder.
          - scale_vals
    
    Mandatory parameteres:
-         - FLAG: it specifies whether raw data is to be included in the training.
          - raw_image_path : path to raw images
          - raw_xml_path: path to raw xmls
          - modify_img_path: path for storing scaled raw images
