@@ -28,18 +28,11 @@ config = configparser.RawConfigParser()
 configFilePath = r'config.txt'
 config.read(configFilePath)
 
-save_image_path = config.get('aug_config', 'save_image_path')
-save_xml_path = config.get('aug_config', 'save_xml_path')
-modify_img_folder = config.get('scale_config', 'modify_img_folder')
-modify_xml_folder = config.get('scale_config', 'modify_xml_folder')
 raw_image_path = config.get('scale_config_raw','raw_image_path')
 raw_xml_path = config.get('scale_config_raw','raw_xml_path')
 modify_img_raw = config.get('scale_config_raw', 'modify_img_path')
 modify_xml_raw = config.get('scale_config_raw', 'modify_xml_path')
-if not os.path.exists(modify_img_folder):
-       os.makedirs(modify_img_folder)
-if not os.path.exists(modify_xml_folder):
-       os.makedirs(modify_xml_folder)
+
 
 if not os.path.exists(modify_img_raw):
        os.makedirs(modify_img_raw)
@@ -54,9 +47,6 @@ if not os.path.exists(final_xmls):
        os.makedirs(final_xmls)
 
 
-
-FLAG = config.get('scale_config_raw','FLAG')
-print(FLAG)
 
 
 
@@ -79,9 +69,8 @@ def move_data(path1,path2):
 def final_execution():
 
     if FLAG=="include":
-       functions_include_raw = [generate_images.generate_images(),generate_scaled.generate_scaled(save_image_path,save_xml_path,modify_img_folder,modify_xml_folder),
-             generate_scaled.generate_scaled(raw_image_path, raw_xml_path, modify_img_raw,modify_xml_raw),move_data(save_image_path,final_images),
-             move_data(save_xml_path,final_xmls),move_data(modify_img_folder,final_images),move_data(modify_xml_folder,final_xmls),
+       functions_include_raw = [
+             generate_scaled.generate_scaled(raw_image_path, raw_xml_path, modify_img_raw,modify_xml_raw)
              move_data(raw_image_path,final_images),move_data(raw_xml_path,final_xmls),
              move_data(modify_img_raw,final_images),move_data(modify_xml_raw,final_xmls),
              generate_tf_records.main(),update_pipeline.save_pipeline_config(),train.train(),train.model_graph()]
@@ -90,17 +79,7 @@ def final_execution():
                func
            except ValueError:
                break
-    else:
-        
-       functions_exclude_raw = [generate_images.generate_images(),generate_scaled.generate_scaled(save_image_path,save_xml_path,modify_img_folder,modify_xml_folder)
-             ,move_data(save_image_path,final_images),move_data(save_xml_path,final_xmls),move_data(modify_img_folder,final_images),move_data(modify_xml_folder,final_xmls),
-             generate_tf_records.main(),update_pipeline.save_pipeline_config(),train.train(),train.model_graph()]
-
-       for func in functions_exclude_raw:
-            try:
-                func
-            except ValueError:
-                break
+   
 
 
 if __name__ == "__main__":
