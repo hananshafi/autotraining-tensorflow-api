@@ -4,32 +4,10 @@ Download the API here: https://github.com/tensorflow/models/tree/master/research
 
 Put all the these files in the tensorflow API folder.
 
-[aug_config section]
-   Optional Parameters:
-         - Under the aug_config section in config file, the parameters:color, scale_vals,scale_modes,augment_factor, colors, augment_modes are optional parameters.
 
-   Mandatory Parameters:
-         - noise: path to noise folder
-         - word_path: path to word file
-         - background_path: path to background images
-         - font_path: path to font file
-         - no_examples: Number of syntetic images to generate
-         - image_path: Path to icons
-         - save_image_path: path for saving synthetic data
-         - save_xml_path: path for saving xml files
-
-[scale_config]
-#generating scaled data from synthetic data
-   Optional Parameters:
-         - scale_vals
-   
-   Mandatory parameteres:
-         - modify_img_folder: path for storing scaled images
-         - modify_xml_folder: path for storing the corresponding xmls
-         - num_varaiations_per_image: Number of variations to be generated per image
 
 [scale_config_raw]
-#generating scaled data from raw data
+#generating augmented scaled data from raw data
    Optional Parameters:
          - scale_vals
    
