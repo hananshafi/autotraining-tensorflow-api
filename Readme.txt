@@ -37,3 +37,6 @@ train_dir/checkpoint dir and saved_model dir will be created automatically.No ne
          - train_dir: folder for storing training progress/ checkpoints
          - checkpoint_dir: same as training dir
          - saved_model: path for inference graph
+
+
+Once done with all these steps, run the train.py script. It automatically trains and saves the model inference graph.
