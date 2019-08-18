@@ -1,5 +1,8 @@
+This is an automatic training mechanism for Tensorflow Object detection API.
 All the changes and modifications are to be done in Config file. The config file has some Optional Parameters and some mandatory parameters.
-Put all the files in the tensorflow API folder.
+Download the API here: https://github.com/tensorflow/models/tree/master/research/object_detection
+
+Put all the these files in the tensorflow API folder.
 
 [aug_config section]
    Optional Parameters:
