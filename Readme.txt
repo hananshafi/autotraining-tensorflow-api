@@ -12,11 +12,11 @@ Put all the these files in the tensorflow API folder.
          - scale_vals
    
    Mandatory parameteres:
-         - raw_image_path : path to raw images
+         [- raw_image_path : path to raw images
          - raw_xml_path: path to raw xmls
          - modify_img_path: path for storing scaled raw images
          - modify_xml_path: path for storing the corresponding scaled raw xmls
-         - num_varaiations_per_image: Number of variations to be generated per image
+         - num_varaiations_per_image: Number of variations to be generated per image]
 
 [final_data]
 contains path to final data (synthetic + scaled)
